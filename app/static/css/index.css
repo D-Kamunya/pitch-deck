@@ -27,3 +27,28 @@
 .inner h1,.categories h3{
   font-family: 'Abril Fatface', cursive;
 }
+
+
+.card-up{
+  background-color: transparent;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url("../img/bg.jpg")no-repeat center center;
+  background-size: cover;
+  height: 200px;
+  overflow: hidden;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
+.avatar {
+  width: 120px;
+  margin-top: -60px;
+  overflow: hidden;
+  border: 5px solid #fff;
+  border-radius: 50%;
+}
+.avatar img {
+  width: 100%;
+}
+.bio{
+  width: 50%;
+  margin: auto;
+}
