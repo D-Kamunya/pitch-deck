@@ -7,13 +7,16 @@
 .header{
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url("../img/bg.jpg")no-repeat center center;
   background-size: cover;
-  min-height: 65vh;
+  min-height: 45vh;
   width: 100%;
   overflow: hidden;
   display: block;
   font-size: 100%;
 }
-
+.navbarr{
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url("../img/bg.jpg")no-repeat center center;
+  background-size: cover;
+}
 .navbar{
   font: 18px 'opensans-bold', sans-serif;
   background-color: transparent;

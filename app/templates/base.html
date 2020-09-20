@@ -27,20 +27,11 @@
 </head>
 
 <body class="body">
-  <div class="header text-center">
     {%block navbar%}
       {% include 'navbar.html' %}
-      <div class="container mt-5 mx-auto">
-        <div class="inner text-white">
-          <h1 class="logo-name">Magical moments,</h1>
-          <h2>just a few seconds away.</h2>
-          <p>Make your pitch now!!</p>
-        </div>
-      </div>
-    {%endblock navbar%}
-    
-  </div>
-
+    {%endblock navbar%}<!--
+    -->{%block header%}
+    {%endblock header%}
   <div class="content container">
   {% block content %}{% endblock content %}
   </div>

@@ -1,4 +1,16 @@
 {% extends 'base.html' %}
+{%block header%}<!--
+--><div class="header text-center mt-0">
+  <div class="container mt-5 mx-auto">
+    <div class="inner text-white">
+      <h1 class="logo-name">Magical moments,</h1>
+      <h2>just a few seconds away.</h2>
+      <p>Make your pitch now!!</p>
+    </div>
+  </div>
+</div>
+{%endblock%}
+
 {%block content%}
   <div class="mt-4 categories">
     <span class="badge badge-warning">CATEGORIES</span>
@@ -11,6 +23,7 @@
       <a href=""><span class="badge badge-pill badge-info">EMPLOYEES</span></a>
       <a href=""><span class="badge badge-pill badge-warning">PARTNERS</span></a>
       <a href=""><span class="badge badge-pill badge-danger">COMPETITORS</span></a>
+      <a href=""><span class="badge badge-pill badge-danger">OTHER</span></a>
     </div>
   </div>
 {%endblock%}
