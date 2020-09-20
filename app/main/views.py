@@ -11,3 +11,12 @@ def index():
    
     return render_template('index.html')
 
+@main.route('/profile/<username>')
+def profile(username):
+
+    '''
+    View profile page function that returns the profile details of the current user logged in
+    '''
+
+    return render_template("profile/profile.html", user = username)    
+
