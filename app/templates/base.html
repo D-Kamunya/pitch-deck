@@ -20,21 +20,27 @@
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
   <!-- Specific Page CSS goes HERE  -->
-  <link href="url_for('static',filename='index.css')" rel="stylesheet">
+  <link href="{{url_for('static',filename='css/index.css')}}" rel="stylesheet">
   {% block styles%}
   {% endblock styles%}
 
 </head>
 
 <body class="body">
-  <!-- Begin Navbar -->
-  <div class="header">
+  <div class="header text-center">
     {%block navbar%}
+      {% include 'navbar.html' %}
+   
     {%endblock navbar%}
+    <div class="container mt-5 mx-auto">
+      <div class="inner text-white">
+        <h1 class="logo-name">Magical moments,</h1>
+        <h2>just a few seconds away.</h2>
+        <p>Make your pitch now!!</p>
+      </div>
+    </div>
   </div>
-  
 
-  <!-- End Navbar -->
   <div class="content container">
   {% block content %}{% endblock content %}
   </div>
@@ -49,6 +55,9 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
   <!-- Specific Page JS goes HERE  -->
   {% block scripts %}
+  <script>
+    $('.carousel-3d-basic').mdbCarousel3d();
+  </script>
   {% endblock scripts %}
   
 </body>
