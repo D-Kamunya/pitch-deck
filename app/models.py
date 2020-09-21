@@ -2,6 +2,7 @@ from . import db
 from datetime import datetime
 
 class User(db.Model):
+
     'User model schema'
 
     __tablename__ = 'users'
@@ -21,6 +22,7 @@ class User(db.Model):
 
 class Pitch(db.Model):
 
+    'Pitch model schema'
     
     __tablename__ = 'pitches'
 
@@ -35,6 +37,7 @@ class Pitch(db.Model):
 
 class Comment(db.Model):
 
+    'Comment model schema'
     
     __tablename__ = 'comments'
 
@@ -46,6 +49,7 @@ class Comment(db.Model):
 
 class Vote(db.Model):
 
+    'Vote model schema'
     
     __tablename__ = 'votes'
 
