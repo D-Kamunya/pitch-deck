@@ -1,4 +1,5 @@
 from . import db
+from datetime import datetime
 
 class User(db.Model):
     'User model schema'
