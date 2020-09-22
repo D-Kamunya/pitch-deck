@@ -57,6 +57,12 @@ class Pitch(db.Model):
     votes = db.relationship('Vote',backref = 'pitch',lazy = "dynamic")
     comments = db.relationship('Comment',backref = 'pitch',lazy = "dynamic")
 
+
+    def save_pitch(self):
+            db.session.add(self)
+            db.session.commit()
+
+
 class Comment(db.Model):
 
     'Comment model schema'
