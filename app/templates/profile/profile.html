@@ -9,17 +9,26 @@
   
     <!-- Avatar -->
     <div class="avatar mx-auto white">
-      <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle"
-        alt="woman avatar">
+      {%if user.profile_pic_path%}
+        <img src="{{url_for('static',filename=user.profile_pic_path)}}" class="rounded-circle"
+        alt="Profile Pic">
+      {%else%}
+        <img src="https://www.iconfinder.com/data/icons/user-pictures/100/unknown_1-2-512.png" class="rounded-circle"
+        alt="No Profile Pic"> 
+      {%endif%}
     </div>
   
     <!-- Content -->
     <div class="card-body text-center">
       <!-- Name -->
-      <h4 class="card-title">User name</h4>
+      <h4 class="card-title"><span class="badge badge-primary">{{user.username[0] | capitalize}}</span> {{user.username | capitalize}}</h4>
       <hr>
-      <!-- Quotation -->
-      <p><i class="fas fa-info mr-2"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci>
+      <p><i class="fas fa-info mr-2"></i>
+      {%if user.bio%}
+        {{user.bio}}
+      {%else%}
+        {{user.username| capitalize}} has no bio  
+      {%endif%}  
       </p>
       <a href=""><button type="button" class="btn btn-primary">Edit Profile</button></a>
 
