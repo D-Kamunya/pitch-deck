@@ -1,8 +1,8 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
-from flask_login import login_required
-from ..models import User
-from .forms import UpdateProfile
+from flask_login import login_required,current_user
+from ..models import User,Pitch
+from .forms import UpdateProfile,PitchForm
 from .. import db,photos
 
 # Views
@@ -60,3 +60,25 @@ def update_pic(username):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.update_profile',username=username))    
+
+
+@main.route('/pitch/new', methods = ['GET','POST'])
+@login_required
+def new_pitch():
+    form = PitchForm())
+    if form.validate_on_submit():
+        title = form.title.data
+        body = form.body.data
+        category = form.category.data
+        # Updated review instance
+        new_pitch = Pitch(pitch_title=title,pitch_body=body,pitch_category=category,user=current_user)
+
+        # save review method
+        new_pitch.save_pitch()
+        return redirect(url_for('.index')
+
+    title = 'New Pitch Form'
+    return render_template('new_pitch.html',title = title, pitch_form=form)    
+
+
+    
