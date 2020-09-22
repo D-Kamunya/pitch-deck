@@ -1,0 +1,32 @@
+import unittest
+from app.models import Pitch,User
+from app import db
+
+
+class PitchModelTest(unittest.TestCase):
+  def setUp(self):
+    self.user_Denno = User(username = 'Denno',password = '123456', email = 'a@gmail.com')
+    self.new_pitch = Pitch(pitch_title='Supermarket bs plan',pitch_body='This is a pitch about my new supermarket',pitch_category="Investors",user = self.user_Denno )
+
+
+  def tearDown(self):
+    Pitch.query.delete()
+    User.query.delete()  
+
+
+  def test_check_instance_variables(self):
+    '''
+    Test if the values of variables are correctly being placed.
+    '''
+    self.assertEquals(self.new_pitch.pitch_title,'Supermarket bs plan')
+    self.assertEquals(self.new_pitch.pitch_body,'This is a pitch about my new supermarket')
+    self.assertEquals(self.new_pitch.pitch_category,'Investors')
+    self.assertEquals(self.new_pitch.user,self.user_Denno)              
+
+
+  def test_save_pitch(self):
+    '''
+    Test for our save pitch method. We also query the database to confirm that we actually have data saved.
+    ''' 
+    self.new_pitch.save_pitch()
+    self.assertTrue(len(Pitch.query.all())>0)
