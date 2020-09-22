@@ -24,11 +24,11 @@ def profile(username):
     View profile page function that returns the profile details of the current user logged in
     '''
     user = User.query.filter_by(username = username).first()
-
+    
     if user is None:
         abort(404)
-
-    return render_template("profile/profile.html", user = user)    
+    pitches = Pitch.get_user_pitches(user.id)
+    return render_template("profile/profile.html", user = user,pitches=pitches)    
 
 @main.route('/profile/<username>/update',methods = ['GET','POST'])
 @login_required

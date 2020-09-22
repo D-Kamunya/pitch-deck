@@ -39,3 +39,9 @@ class PitchModelTest(unittest.TestCase):
     self.new_pitch.save_pitch()
     got_pitches = Pitch.get_all_pitches()
     self.assertTrue(len(got_pitches) == 1)  
+
+  def test_get_user_pitches(self):
+
+        self.new_pitch.save_pitch()
+        got_pitches = Pitch.get_user_pitches(self.new_pitch.user_id)
+        self.assertTrue(len(got_pitches) == 1)       
