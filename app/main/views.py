@@ -1,8 +1,8 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
 from flask_login import login_required,current_user
-from ..models import User,Pitch
-from .forms import UpdateProfile,PitchForm
+from ..models import User,Pitch,Comment
+from .forms import UpdateProfile,PitchForm,CommentForm
 from .. import db,photos
 
 # Views
@@ -92,6 +92,22 @@ def pitch_by_category(category_name):
     pitches=Pitch.query.filter_by(pitch_category=category_name).order_by(Pitch.posted.desc()).all()
     
     return render_template('pitch_by_category.html',pitches=pitches)
+
+
+
+@main.route('/pitch_details/<pitch_id>')
+@login_required
+def pitch_details(pitch_id):
+
+    '''
+    View pitch details function that returns pitch_details and comment form
+    '''
+
+    form = CommentForm()
+    pitch=Pitch.query.get(pitch_id)
+    comments=Comment.query.filter_by(pitch_id=pitch_id).order_by(Comment.posted.desc()).all()
+    
+    return render_template('pitch_details.html',comment_form=form,pitch=pitch,comments=comments)    
 
 
 
