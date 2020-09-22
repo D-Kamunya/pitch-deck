@@ -103,7 +103,7 @@ def pitch_by_category(category_name):
 
 
 
-@main.route('/pitch_details/<pitch_id>')
+@main.route('/pitch_details/<pitch_id>', methods = ['GET','POST'])
 @login_required
 def pitch_details(pitch_id):
 
@@ -115,6 +115,17 @@ def pitch_details(pitch_id):
     pitch=Pitch.query.get(pitch_id)
     comments=Comment.query.filter_by(pitch_id=pitch_id).order_by(Comment.posted.desc()).all()
     comments_count=get_comments_count(pitch_id)
+
+    if form.validate_on_submit():
+        comment = form.comment.data
+        
+        # Updated comment instance
+        new_comment = Comment(comment=comment,user=current_user,pitch=pitch)
+
+        # save review method
+        new_comment.save_comment()
+        return redirect(url_for('main.pitch_details',pitch_id=pitch_id))
+
     return render_template('pitch_details.html',comment_form=form,pitch=pitch,comments=comments,comments_count=comments_count)    
 
 
