@@ -30,7 +30,7 @@
         {{user.username| capitalize}} has no bio  
       {%endif%}  
       </p>
-      <a href=""><button type="button" class="btn btn-primary mb-3">Edit Profile</button></a>
+      <a href="{{url_for('main.update_profile',username=user.username)}}"><button type="button" class="btn btn-primary mb-3">Edit Profile</button></a>
 
       <h2 class="mt-2">My Pitches</h2>
 

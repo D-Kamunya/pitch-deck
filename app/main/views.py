@@ -45,4 +45,4 @@ def update_profile(username):
 
         return redirect(url_for('.profile',username=user.username))
 
-    return render_template('profile/update.html',form =form)
+    return render_template('profile/update.html',user=user,form =form)
