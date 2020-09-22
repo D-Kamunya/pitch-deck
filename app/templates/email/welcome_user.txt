@@ -1,0 +1,3 @@
+Hello {{user.username}}
+Welcome to Pitch Deck
+Get to enjoy magical moment with us.Get the opportunity to post your pitches from any category and receive reviews from different people
