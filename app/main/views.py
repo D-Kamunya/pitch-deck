@@ -82,4 +82,17 @@ def new_pitch():
     return render_template('new_pitch.html',title = title, pitch_form=form)    
 
 
+@main.route('/pitches/category/<category_name>')
+@login_required
+def pitch_by_category(category_name):
+
+    '''
+    View root page function that returns pitch category page with pitches from category selected
+    '''
+    pitches=Pitch.query.filter_by(pitch_category=category_name).all()
+    
+    return render_template('pitch_by_category.html',pitches=pitches)
+
+
+
     

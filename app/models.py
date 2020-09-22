@@ -65,7 +65,7 @@ class Pitch(db.Model):
 
     @classmethod
     def get_all_pitches(cls):
-        pitches = Pitch.query.order_by(Pitch.posted.asc()).all()
+        pitches = Pitch.query.order_by(Pitch.posted.desc()).all()
         return pitches    
 
 
