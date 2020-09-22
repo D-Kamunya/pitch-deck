@@ -5,6 +5,7 @@ class Config:
     '''
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kinc:kinc@localhost/pitch_deck'
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
 class ProdConfig(Config):
     '''
     Production  configuration child class
