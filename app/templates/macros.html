@@ -1,0 +1,35 @@
+{% macro displayPitches(pitches) %}
+
+{% for pitch in pitches %}
+    
+  <div class="card pitch mx-4 mb-3">
+
+    <!-- Card content -->
+    <div class="card-body">
+
+      <!-- Title -->
+      <h4 class="card-header">{{pitch.pitch_title}}</h4>
+      <hr>
+      <!-- Text -->
+      <div class="mb-3">
+        <a href="#" class="badge badge-default">{{pitch.user.username}}</a>
+        <a href="#" class="badge badge-info">{{pitch.pitch_category}}</a>
+      </div>
+      <p class="card-text">
+        {{pitch.pitch_body}}.</p>
+      <div>
+        <span class="badge badge-success ml-2"> <i class="far fa-thumbs-up">4</i></span>
+        <span class="badge badge-danger ml-2"> <i class="far fa-thumbs-down">4</i></span>
+        <span class="badge badge-info ml-2"> <i class="far fa-comment">4</i></span>
+      </div>  
+      <p class="text-muted text-center my-1">{{(pitch.posted)}}</p>
+      <a href="#!" class="black-text d-flex justify-content-end">
+        <h5>Leave a Comment <i class="fas fa-angle-double-right"></i></h5>
+      </a>
+
+    </div>
+
+  </div>
+{% endfor %}
+
+{% endmacro %}
