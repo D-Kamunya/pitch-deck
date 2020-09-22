@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{%block content%}
+  <div class="mt-5 jumbotron">
+    <div class="card pitch mx-4 mb-3">
+
+      <!-- Card content -->
+      <div class="card-body">
+  
+        <!-- Title -->
+        <h4 class="card-header">Pitch Title</h4>
+        <hr>
+        <!-- Text -->
+        <div class="mb-3">
+          <a href="#" class="badge badge-default">Pitch Author</a>
+          <a href="#" class="badge badge-info">Pitch CATEGORY</a>
+        </div>
+        <p class="card-text">
+          {hgaGSxhaghasgxbahZbxa.</p>
+        <div>
+          <span class="badge badge-success ml-2"> <i class="far fa-thumbs-up">4</i></span>
+          <span class="badge badge-danger ml-2"> <i class="far fa-thumbs-down">4</i></span>
+          <span class="badge badge-info ml-2"> <i class="far fa-comment">4</i></span>
+        </div>  
+        <p class="text-muted text-center my-1">2 days ago</p>
+      </div>
+  
+    </div>
+    <h3>Comments</h3>
+    <div class="comments my-2">
+      <div class="chip">
+        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> Comment
+      </div>
+      <div class="chip">
+        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> John Doe
+      </div>
+    </div>
+    {{wtf.quick_form(comment_form)}}
+  </div>
+{%endblock%}
