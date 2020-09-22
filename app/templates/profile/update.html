@@ -10,13 +10,8 @@
   
     <!-- Avatar -->
     <div class="avatar mx-auto white">
-      {%if user.profile_pic_path%}
-        <img src="{{url_for('static',filename=user.profile_pic_path)}}" class="rounded-circle"
-        alt="Profile Pic">
-      {%else%}
-        <img src="https://www.iconfinder.com/data/icons/user-pictures/100/unknown_1-2-512.png" class="rounded-circle"
-        alt="No Profile Pic"> 
-      {%endif%}
+      <img src="{{url_for('static',filename=user.profile_pic_path)}}" class="rounded-circle"
+      alt="Profile Pic">
     </div>
   
     <!-- Content -->
