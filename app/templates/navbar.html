@@ -1,14 +1,38 @@
 <div class="navbarr mt-o">
   <nav class="mb-1 navbar navbar-expand-lg navbar-dark ">
+    <div class="navbar-translate">
+      <a class="navbar-brand text-white" href="/"><h4><span class="badge badge-dark"><i class="fas fa-pen mr-1"></i>Pitch Deck</span></h4></a>
+    </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
       aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item ">
           <a class="nav-link" href="/">Home
           </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{url_for('main.pitch_by_category',category_name='Investors')}}">Investors</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{url_for('main.pitch_by_category',category_name='Customers')}}">Customers</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{url_for('main.pitch_by_category',category_name='Sales')}}">Sales</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{url_for('main.pitch_by_category',category_name='Employees')}}">Employees</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{url_for('main.pitch_by_category',category_name='Partners')}}">Partners</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{url_for('main.pitch_by_category',category_name='Competitors')}}">Competitors</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{url_for('main.pitch_by_category',category_name='Other')}}">Others</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">

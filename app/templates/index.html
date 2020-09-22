@@ -16,7 +16,7 @@
   <div class="mt-4 categories">
     <span class="badge badge-warning">CATEGORIES</span>
     <h2 class="mt-1">Explore Pitches by category</h2>
-    <div class="d-flex justify-content-between p-2 mt-1 jumbotron">
+    <div class="d-flex justify-content-between p-3 my-1">
       <a href="{{url_for('main.index')}}"><span class="badge badge-pill badge-default">ALL</span></a>
       <a href="{{url_for('main.pitch_by_category',category_name='Investors')}}"><span class="badge badge-pill badge-primary">INVESTORS</span></a>
       <a href="{{url_for('main.pitch_by_category',category_name='Customers')}}"><span class="badge badge-pill badge-secondary">CUSTOMERS</span></a>
@@ -24,7 +24,7 @@
       <a href="{{url_for('main.pitch_by_category',category_name='Employees')}}"><span class="badge badge-pill badge-info">EMPLOYEES</span></a>
       <a href="{{url_for('main.pitch_by_category',category_name='Partners')}}"><span class="badge badge-pill badge-warning">PARTNERS</span></a>
       <a href="{{url_for('main.pitch_by_category',category_name='Competitors')}}"><span class="badge badge-pill badge-danger">COMPETITORS</span></a>
-      <a href="{{url_for('main.pitch_by_category',category_name='Other')}}"><span class="badge badge-pill badge-danger">OTHER</span></a>
+      <a href="{{url_for('main.pitch_by_category',category_name='Other')}}"><span class="badge badge-pill badge-light">OTHER</span></a>
     </div>
   </div>
 
