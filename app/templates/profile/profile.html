@@ -23,14 +23,14 @@
       <!-- Name -->
       <h4 class="card-title"><span class="badge badge-primary">{{user.username[0] | capitalize}}</span> {{user.username | capitalize}}</h4>
       <hr>
-      <p><i class="fas fa-info mr-2"></i>
+      <p class="jumbotron p-4"><i class="fas fa-info mr-2"></i>
       {%if user.bio%}
         {{user.bio}}
       {%else%}
         {{user.username| capitalize}} has no bio  
       {%endif%}  
       </p>
-      <a href=""><button type="button" class="btn btn-primary">Edit Profile</button></a>
+      <a href=""><button type="button" class="btn btn-primary mb-3">Edit Profile</button></a>
 
       <h2 class="mt-2">My Pitches</h2>
 
