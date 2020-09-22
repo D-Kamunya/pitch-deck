@@ -59,8 +59,14 @@ class Pitch(db.Model):
 
 
     def save_pitch(self):
-            db.session.add(self)
-            db.session.commit()
+        db.session.add(self)
+        db.session.commit()
+
+
+    @classmethod
+    def get_all_pitches(cls):
+        pitches = Pitch.query.order_by(Pitch.posted.asc()).all()
+        return pitches    
 
 
 class Comment(db.Model):

@@ -30,3 +30,12 @@ class PitchModelTest(unittest.TestCase):
     ''' 
     self.new_pitch.save_pitch()
     self.assertTrue(len(Pitch.query.all())>0)
+
+
+  def test_get_all_pitches(self):
+    '''
+    Test to see if we can get all saved pitches
+    ''' 
+    self.new_pitch.save_pitch()
+    got_pitches = Pitch.get_all_pitches()
+    self.assertTrue(len(got_pitches) == 1)  
