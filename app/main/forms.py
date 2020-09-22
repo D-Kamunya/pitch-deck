@@ -9,8 +9,8 @@ class UpdateProfile(FlaskForm):
 
 class PitchForm(FlaskForm):
 
-    title = StringField('Review title',validators=[Required()])
-    body = TextAreaField('Movie review')
+    title = StringField('Pitch title',validators=[Required()])
+    body = TextAreaField('Pitch content')
     category = SelectField(u'Category', choices=[('Investors', 'Investors'), 
                                                 ('Customers', 'Customers'),
                                                 ('Sales', 'Sales'),
