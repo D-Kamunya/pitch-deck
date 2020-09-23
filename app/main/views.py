@@ -121,7 +121,18 @@ def pitch_details(pitch_id):
         db.session.commit()
         return redirect(url_for('main.pitch_details',pitch_id=pitch_id))
 
-    return render_template('pitch_details.html',comment_form=form,pitch=pitch,comments=comments)    
+    return render_template('pitch_details.html',comment_form=form,pitch=pitch,comments=comments)
+
+@main.route('/pitch_upvote/<pitch_id>')
+def pitch_upvote(pitch_id):
+    '''
+    View function to add do upvote on pitch click
+    '''
+    pitch=Pitch.query.get(pitch_id)
+    pitch.pitch_upvotes=pitch.pitch_upvotes+1
+    db.session.add(pitch)
+    db.session.commit()  
+    return redirect(url_for('main.pitch_details',pitch_id=pitch_id))      
 
 
 
