@@ -78,4 +78,10 @@
     margin: 0 8px 0 -12px;
     border-radius: 50%;
 }
+.dropdown-item{
+  color: #fff;
+}
+.test{
+  background: black;
+}
 

@@ -13,7 +13,7 @@
       <!-- Text -->
       <div class="mb-3">
         <a href="#" class="badge badge-default">{{pitch.user.username}}</a>
-        <a href="#" class="badge badge-info">{{pitch.pitch_category}}</a>
+        <a href="{{url_for('main.pitch_by_category',category_name=pitch.pitch_category)}}" class="badge badge-info">{{pitch.pitch_category}}</a>
       </div>
       <p class="card-text">
         {{pitch.pitch_body}}.</p>

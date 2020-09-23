@@ -7,7 +7,6 @@ from .. import db,photos
 
 # Views
 @main.route('/')
-@login_required
 def index():
 
     '''
@@ -18,6 +17,7 @@ def index():
     return render_template('index.html',pitches=pitches)
 
 @main.route('/profile/<username>')
+@login_required
 def profile(username):
 
     '''
@@ -124,6 +124,7 @@ def pitch_details(pitch_id):
     return render_template('pitch_details.html',comment_form=form,pitch=pitch,comments=comments)
 
 @main.route('/pitch_upvote/<pitch_id>')
+@login_required
 def pitch_upvote(pitch_id):
     '''
     View function to add do upvote on pitch click
@@ -136,6 +137,7 @@ def pitch_upvote(pitch_id):
 
 
 @main.route('/pitch_downvote/<pitch_id>')
+@login_required
 def pitch_downvote(pitch_id):
     '''
     View function to add do downvote on pitch click
