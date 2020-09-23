@@ -13,7 +13,7 @@ pitch-deck V1.0
 ## Description
 In life, you only have 60 seconds to impress someone. 1 minute can make or break you.
 Pitch Deck is a flask web application which helps its users to pitch ideas based on different categories.The users also get the opportunity to view other users pitches,vote on them and also leave a comment 
-The link to the live site is 
+The link to the live site is https://pitch-deck-101.herokuapp.com/
 
 ## User Story
 * User can see the pitches other people have posted.
