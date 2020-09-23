@@ -132,7 +132,19 @@ def pitch_upvote(pitch_id):
     pitch.pitch_upvotes=pitch.pitch_upvotes+1
     db.session.add(pitch)
     db.session.commit()  
-    return redirect(url_for('main.pitch_details',pitch_id=pitch_id))      
+    return redirect(url_for('main.pitch_details',pitch_id=pitch_id)) 
+
+
+@main.route('/pitch_downvote/<pitch_id>')
+def pitch_downvote(pitch_id):
+    '''
+    View function to add do downvote on pitch click
+    '''
+    pitch=Pitch.query.get(pitch_id)
+    pitch.pitch_downvotes=pitch.pitch_downvotes+1
+    db.session.add(pitch)
+    db.session.commit()  
+    return redirect(url_for('main.pitch_details',pitch_id=pitch_id))         
 
 
 
