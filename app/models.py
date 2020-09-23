@@ -53,9 +53,10 @@ class Pitch(db.Model):
     pitch_body = db.Column(db.String)
     pitch_category = db.Column(db.String)
     posted = db.Column(db.DateTime,default=datetime.utcnow)
-    comments_count = db.Column(db.Integer, default=0)
+    pitch_comments_count = db.Column(db.Integer, default=0)
+    pitch_upvotes = db.Column(db.Integer, default=0)
+    pitch_downvotes = db.Column(db.Integer, default=0)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
-    votes = db.relationship('Vote',backref = 'pitch',lazy = "dynamic")
     comments = db.relationship('Comment',backref = 'pitch',lazy = "dynamic")
 
 
@@ -90,15 +91,6 @@ class Comment(db.Model):
     def save_comment(self):
         db.session.add(self)
         db.session.commit()
-
-class Vote(db.Model):
-
-    'Vote model schema'
-    
-    __tablename__ = 'votes'
-
-    id = db.Column(db.Integer,primary_key = True)
-    vote_type = db.Column(db.String)
-    pitch_id = db.Column(db.Integer,db.ForeignKey("pitches.id"))    
+  
 
          

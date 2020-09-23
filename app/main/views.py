@@ -115,7 +115,7 @@ def pitch_details(pitch_id):
 
         # save review method
         new_comment.save_comment()
-        pitch.comments_count = pitch.comments_count+1
+        pitch.pitch_comments_count = pitch.pitch_comments_count+1
 
         db.session.add(pitch)
         db.session.commit()
