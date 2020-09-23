@@ -6,14 +6,6 @@ from .forms import UpdateProfile,PitchForm,CommentForm
 from .. import db,photos
 
 # Views
-def get_comments_count(pitch_id):
-    '''
-    Function to get number of comments of a particular pitch
-    '''
-    comments=Comment.query.filter_by(pitch_id=pitch_id).order_by(Comment.posted.desc()).all()
-    comments_count=len(comments)
-    return comments_count
-
 @main.route('/')
 @login_required
 def index():
@@ -114,7 +106,6 @@ def pitch_details(pitch_id):
     form = CommentForm()
     pitch=Pitch.query.get(pitch_id)
     comments=Comment.query.filter_by(pitch_id=pitch_id).order_by(Comment.posted.desc()).all()
-    comments_count=get_comments_count(pitch_id)
 
     if form.validate_on_submit():
         comment = form.comment.data
@@ -124,9 +115,13 @@ def pitch_details(pitch_id):
 
         # save review method
         new_comment.save_comment()
+        pitch.comments_count = pitch.comments_count+1
+
+        db.session.add(pitch)
+        db.session.commit()
         return redirect(url_for('main.pitch_details',pitch_id=pitch_id))
 
-    return render_template('pitch_details.html',comment_form=form,pitch=pitch,comments=comments,comments_count=comments_count)    
+    return render_template('pitch_details.html',comment_form=form,pitch=pitch,comments=comments)    
 
 
 

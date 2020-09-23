@@ -53,6 +53,7 @@ class Pitch(db.Model):
     pitch_body = db.Column(db.String)
     pitch_category = db.Column(db.String)
     posted = db.Column(db.DateTime,default=datetime.utcnow)
+    comments_count = db.Column(db.Integer, default=0)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     votes = db.relationship('Vote',backref = 'pitch',lazy = "dynamic")
     comments = db.relationship('Comment',backref = 'pitch',lazy = "dynamic")
