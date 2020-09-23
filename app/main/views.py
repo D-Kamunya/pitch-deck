@@ -91,7 +91,7 @@ def pitch_by_category(category_name):
     '''
     pitches=Pitch.query.filter_by(pitch_category=category_name).order_by(Pitch.posted.desc()).all()
     
-    return render_template('pitch_by_category.html',pitches=pitches)
+    return render_template('pitch_by_category.html',pitches=pitches,category=category_name)
 
 
 
