@@ -1,25 +1,18 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as macro%}
 
-  {%block navbar%}
-    <div class="test">
-    {{super()}}
-  {%endblock%}
-    {%block header%}
-      <div class="header text-center pt-0 mt-0">
-        <div class="container mt-5 mx-auto">
-          <div class="inner text-white">
-            <h1 class="logo-name">Magical moments,</h1>
-            <h2>just a few seconds away.</h2>
-            <p>Make your pitch now!!</p>
-            <a href="{{url_for('main.new_pitch')}}"><button type="button" class="btn btn-success">PITCH IDEA</button></a>
-          </div>
-        </div>
+{%block header%}
+  <div class="header text-center">
+    <div class="container mt-5 mx-auto">
+      <div class="inner text-white pt-5">
+        <h1 class="logo-name">Magical moments,</h1>
+        <h2>just a few seconds away.</h2>
+        <p>Make your pitch now!!</p>
+        <a href="{{url_for('main.new_pitch')}}"><button type="button" class="btn btn-success">PITCH IDEA</button></a>
       </div>
     </div>
-    {%endblock%}
-
-
+  </div>
+{%endblock%}
 
 {%block content%}
   <div class="mt-4 categories">
