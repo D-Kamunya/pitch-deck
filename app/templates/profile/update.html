@@ -6,11 +6,11 @@
   <div class="card testimonial-card">
 
     <!-- Background color -->
-    <div class="card-up lighten-1"></div>
+    <div class="card-up aqua-gradient"></div>
   
     <!-- Avatar -->
     <div class="avatar mx-auto white">
-      <img src="{{url_for('static',filename=user.profile_pic_path)}}" class="rounded-circle"
+      <img src="{{url_for('static',filename=user.profile_pic_path)}}" onerror="this.onerror=null;this.src='https://www.iconfinder.com/data/icons/user-pictures/100/unknown-512.png';" class="rounded-circle"
       alt="Profile Pic">
     </div>
   
