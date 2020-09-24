@@ -10,9 +10,9 @@ class CommentModelTest(unittest.TestCase):
     self.new_comment = Comment(comment='Test Comment',user=self.user_Denno,pitch=self.new_pitch)
 
   def tearDown(self):
+    Comment.query.delete()  
     Pitch.query.delete()
     User.query.delete()
-    Comment.query.delete()  
 
 
   def test_check_instance_variables(self):
@@ -24,9 +24,9 @@ class CommentModelTest(unittest.TestCase):
     self.assertEquals(self.new_comment.pitch,self.new_pitch)
 
 
-  # def test_save_comment(self):
-  #   self.new_comment.save_comment()
-  #   self.assertTrue(len(Comment.query.all())>0)
+  def test_save_comment(self):
+    self.new_comment.save_comment()
+    self.assertTrue(len(Comment.query.all())>0)
                  
 
 
