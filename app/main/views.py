@@ -4,6 +4,7 @@ from flask_login import login_required,current_user
 from ..models import User,Pitch,Comment
 from .forms import UpdateProfile,PitchForm,CommentForm
 from .. import db,photos
+import markdown2  
 
 # Views
 @main.route('/')
@@ -106,7 +107,11 @@ def pitch_details(pitch_id):
     form = CommentForm()
     pitch=Pitch.query.get(pitch_id)
     comments=Comment.query.filter_by(pitch_id=pitch_id).order_by(Comment.posted.desc()).all()
-
+    format_comments=[]
+    if comments:
+        for comment in comments:
+            format_comments.append(markdown2.markdown(comment.comment,extras=["code-friendly", "fenced-code-blocks"]))
+    
     if form.validate_on_submit():
         comment = form.comment.data
         
@@ -121,7 +126,7 @@ def pitch_details(pitch_id):
         db.session.commit()
         return redirect(url_for('main.pitch_details',pitch_id=pitch_id))
 
-    return render_template('pitch_details.html',comment_form=form,pitch=pitch,comments=comments)
+    return render_template('pitch_details.html',comment_form=form,pitch=pitch,comments=comments,format_comments=format_comments)
 
 @main.route('/pitch_upvote/<pitch_id>')
 @login_required

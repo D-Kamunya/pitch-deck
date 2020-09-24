@@ -22,6 +22,10 @@
   <!-- Specific Page CSS goes HERE  -->
   <link href="{{url_for('static',filename='css/index.css')}}" rel="stylesheet">
   {% block styles%}
+
+  {{ simplemde.css}}
+  {{ simplemde.js }}
+
   {% endblock styles%}
 
 </head>
